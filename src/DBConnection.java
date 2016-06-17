@@ -1,4 +1,4 @@
-import java.sql.Connection;
+	import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -19,26 +19,18 @@ public class DBConnection {
 		   System.out.println("База Подключена!");
 	   }
 	
-	// --------Создание таблицы--------
-	public static void createDB() throws ClassNotFoundException, SQLException
-	   {
-		statmt = conn.createStatement();
-		statmt.execute("CREATE TABLE if not exists 'users' ('id' INTEGER PRIMARY KEY AUTOINCREMENT, 'name' text, 'phone' INT);");
 		
-		System.out.println("Таблица создана или уже существует.");
-	   }
-	
 	// --------Заполнение таблицы--------
-	public static void writeDB() throws SQLException
+	public static void writeDB() throws ClassNotFoundException, SQLException
 	{
-		   statmt.execute("INSERT INTO 'users' ('name', 'phone') VALUES ('Petya', 125453); ");
-		   statmt.execute("INSERT INTO 'users' ('name', 'phone') VALUES ('Vasya', 321789); ");
-		   statmt.execute("INSERT INTO 'users' ('name', 'phone') VALUES ('Masha', 456123); ");
+			statmt = conn.createStatement();
+		   statmt.execute("INSERT INTO 'Wherehouse' ('PrGroup', 'Product', 'PrDiscribe', 'PrMaker', 'PrQnt', 'PrPrice') VALUES ('Непродовольчі', 'Лампочка', '60 Вт', 'Максус', 4, 22); ");
+		   
 		  
 		   System.out.println("Таблица заполнена");
 	}
 	
-	// -------- Вывод таблицы--------
+	/*/ -------- Вывод таблицы--------
 	public static void readDB() throws ClassNotFoundException, SQLException
 	   {
 		resSet = statmt.executeQuery("SELECT * FROM users");
@@ -53,11 +45,11 @@ public class DBConnection {
 		
 		System.out.println("Таблица выведена");
 	    }
-	
+	*/
 		// --------Закрытие--------
 		public static void closeDB() throws ClassNotFoundException, SQLException
 		   {
-			//conn.close();
+			conn.close();
 			statmt.close();
 			resSet.close();
 			
