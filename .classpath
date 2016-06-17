@@ -2,8 +2,11 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="C:/Users/user/workspace2/StoreHouse/sqlite-jdbc-3.7.2.jar"/>
 	<classpathentry kind="lib" path="C:/Users/user/workspace2/StoreHouse/sqlite-jdbc-3.7.2-javadoc.jar"/>
 	<classpathentry kind="lib" path="C:/Users/user/workspace2/StoreHouse/sqlite-jdbc-3.7.2-sources.jar"/>
+=======
+>>>>>>> e556d865c53b49700db04a29428a838f715d3b59
 	<classpathentry kind="output" path="bin"/>
 </classpath>
