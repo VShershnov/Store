@@ -1,4 +1,4 @@
-package network;
+package src.network;
 import java.io.*;
 import java.net.*;
 
@@ -8,7 +8,7 @@ public class MultiJabberServer {
 
 	public static void main(String[] args) throws IOException {
 		ServerSocket s = new ServerSocket(PORT);
-		System.out.println("Сервер запущено.");
+		System.out.println("пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.");
 
 		try {
 			while (true) {
@@ -16,7 +16,7 @@ public class MultiJabberServer {
 				try {
 					new ServeOneJabber(socket);
 				} catch (IOException e) {
-					// в разі невдачі закриваємо сокет
+					// пїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
 					socket.close();
 				}
 			}

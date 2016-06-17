@@ -1,4 +1,4 @@
-package network;
+package src.network;
 import java.io.*;
 import java.net.*;
 
@@ -7,13 +7,13 @@ public class ServeOneJabber extends Thread {
 	public ServeOneJabber(Socket s) throws IOException {
 		socket = s;
 		in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-		// включаємо автоматичне виштовхування
+		// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 		out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(
 				socket.getOutputStream())), true);
-		// Якщо будь-який з вище перерахованих викликів приведе до виникнення
-		// виключення, тоді викликаючий буде відповідальний за закриття сокета
-		// інакше потік закриє його
-		start();// викликаємо run();
+		// пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ-пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+		// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
+		// пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
+		start();// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ run();
 	}
 
 	public void run() {
@@ -22,17 +22,17 @@ public class ServeOneJabber extends Thread {
 				String str = in.readLine();
 				if (str.equals("END"))
 					break;
-				System.out.println("Ехо стрічка:" + str);
+				System.out.println("пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ:" + str);
 				out.println(str);
 			}
-			System.out.println("Закриваємо сокет на сервері");
+			System.out.println("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ");
 		} catch (IOException e) {
 			System.err.println("IO Exception");
 		} finally {
 			try {
 				socket.close();
 			} catch (IOException e) {
-				System.err.println("Сокет не закрито ...");
+				System.err.println("пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ ...");
 			}
 		}
 	}
