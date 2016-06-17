@@ -26,8 +26,32 @@ public class DBConnection {
 	public static void writeDB() throws ClassNotFoundException, SQLException
 	{
 			statmt = conn.createStatement();
-		   statmt.execute("INSERT INTO 'Wherehouse' ('PrGroup', 'Product', 'PrDiscribe', 'PrMaker', 'PrQnt', 'PrPrice') VALUES ('Непродовольчі', 'Лампочка', '60 Вт', 'Максус', 4, 22); ");
+		   statmt.execute("INSERT INTO 'Wherehouse' ('PrGroup', 'Product', 'PrDiscribe', 'PrMaker', 'PrQnt', 'PrPrice') " +
+		   		"VALUES ('Непродовольчі', 'Лампочка60', '60 Вт', 'Максус', 4, 12); ");
+		  
+		   statmt.execute("INSERT INTO 'Wherehouse' ('PrGroup', 'Product', 'PrDiscribe', 'PrMaker', 'PrQnt', 'PrPrice') " +
+	   		"VALUES ('Непродовольчі', 'Лампочка100', '100 Вт', 'Максус', 4, 18); ");
 		   
+		   statmt.execute("INSERT INTO 'Wherehouse' ('PrGroup', 'Product', 'PrDiscribe', 'PrMaker', 'PrQnt', 'PrPrice') " +
+	   		"VALUES ('Непродовольчі', 'Лампочка40', '40 Вт', 'Максус', 4, 9); ");
+		   
+		   statmt.execute("INSERT INTO 'Wherehouse' ('PrGroup', 'Product', 'PrDiscribe', 'PrMaker', 'PrQnt', 'PrPrice') " +
+	   		"VALUES ('Непродовольчі', 'Запальничка', 'проста', 'Крікетс', 20, 10); ");
+		   
+		   statmt.execute("INSERT INTO 'Wherehouse' ('PrGroup', 'Product', 'PrDiscribe', 'PrMaker', 'PrQnt', 'PrPrice') " +
+	   		"VALUES ('Продовольчі', 'БорошноВГ', 'вищий гатунок', 'Злагода', 10, 40); ");
+		   
+		   statmt.execute("INSERT INTO 'Wherehouse' ('PrGroup', 'Product', 'PrDiscribe', 'PrMaker', 'PrQnt', 'PrPrice') " +
+	   		"VALUES ('Продовольчі', 'БорошноПГ', 'перший гатунок', 'Злагода', 10, 30); ");
+		   
+		   statmt.execute("INSERT INTO 'Wherehouse' ('PrGroup', 'Product', 'PrDiscribe', 'PrMaker', 'PrQnt', 'PrPrice') " +
+	   		"VALUES ('Продовольчі', 'Хліб Житній', '', 'КиївХліб', 10, 9); ");
+		   
+		   statmt.execute("INSERT INTO 'Wherehouse' ('PrGroup', 'Product', 'PrDiscribe', 'PrMaker', 'PrQnt', 'PrPrice') " +
+	   		"VALUES ('Продовольчі', 'Хліб Батон', '', 'КиївХліб', 10, 11); ");
+		   
+		   statmt.execute("INSERT INTO 'Wherehouse' ('PrGroup', 'Product', 'PrDiscribe', 'PrMaker', 'PrQnt', 'PrPrice') " +
+	   		"VALUES ('Продовольчі', 'Булочки Студент', '', 'КиївХліб', 10, 16); ");
 		  
 		   System.out.println("Таблица заполнена");
 	}
@@ -53,7 +77,7 @@ public class DBConnection {
 		   {
 			conn.close();
 			statmt.close();
-			resSet.close();
+			//resSet.close();
 			
 			System.out.println("Соединения закрыты");
 		   }
