@@ -14,6 +14,7 @@ public class Start {
 		//AddIntoTable.addInfo();
 		//DeleteRow.delete();
 		//OutputTable.out();
-		SearchForName.search();
+		//SearchForName.search();
+		EditUpdeteName.edit();
 	}
 }

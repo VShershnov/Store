@@ -29,7 +29,7 @@ public class AddIntoTable {
 		Connection connection = null;
 
 		String insertSQL = "INSERT INTO Goods VALUES"
-				+ "(?,'name_group','name',count, " + "('" + getCurrentTimeStamp()
+				+ "(?,'name_group','name',count, " + "('" + currentTime()
 				+ "'))";
 		try {
 			// create a database connection
@@ -54,7 +54,7 @@ public class AddIntoTable {
 		}
 	}
 
-	private static String getCurrentTimeStamp() {
+	private static String currentTime() {
 		java.util.Date today = new java.util.Date();
 		return date.format(today.getTime());
 	}
