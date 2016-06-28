@@ -10,7 +10,7 @@ public class Start {
 
 	public static void main(String[] args) throws ClassNotFoundException,
 			SQLException {
-		// OutputTable.out();
+		OutputTable.out();
 		//AddIntoTable.addInfo();
 		//DeleteRow.delete();
 		//OutputTable.out();

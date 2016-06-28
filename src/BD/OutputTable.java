@@ -19,7 +19,7 @@ public class OutputTable {
 			try {
 				// create a database connection
 				connection = DriverManager
-						.getConnection("jdbc:sqlite:C:/Users/Trovich/workspace/BDSQLite/Base.db");
+						.getConnection("jdbc:sqlite:Base.db");
 				Statement statement = connection.createStatement();
 				statement.setQueryTimeout(30); // set timeout to 30 sec.
 
