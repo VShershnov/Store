@@ -31,8 +31,9 @@ public class OutputTable {
            
 	}
         
-        public static void out(ResultSet rs) throws ClassNotFoundException, SQLException{
-                while (rs.next()){
+        static void out(ResultSet rs) throws ClassNotFoundException, SQLException{
+            sum = 0;    
+            while (rs.next()){
                 // read the result set
 			System.out.println("id = " + rs.getInt("id")
                         + " name_group = " + rs.getString("name_group")
@@ -47,6 +48,32 @@ public class OutputTable {
             }
             System.out.println("===============================");
             System.out.println("The sum of all goods = " + sum);
+        }
+        
+        // The sum of all goods
+        public static int outSum() throws ClassNotFoundException, SQLException{
+            sum = 0;
+            try {
+                connection();// create a database connection
+                rs = statement.executeQuery("select * from Goods");
+                while (rs.next())
+                sum += rs.getInt("count") * rs.getInt("price");
+                
+            } catch (SQLException e) {
+                // if the error message is "out of memory",
+                // it probably means no database file is found
+                System.err.println(e.getMessage());
+            } finally {
+                    try {
+                        if (conn != null) {
+                            conn.close();
+                        }
+                    } catch (SQLException e) {
+                        // connection close failed.
+                        System.err.println(e);
+                    }
+             }
+        return sum;    
         }
         
     /**

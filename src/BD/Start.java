@@ -1,5 +1,6 @@
 package BD;
 
+import static BD.OutputTable.sum;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -16,6 +17,7 @@ public class Start {
 		//OutputTable.out();
 		SearchFor.searchName();
                 SearchFor.searchGroup();
+                System.out.println("The sum of all goods = " + SearchFor.outSum());
 		//EditUpdeteName.edit();
 	}
 }

@@ -11,6 +11,8 @@ import java.sql.Statement;
 
 public class SearchFor extends OutputTable {
         
+        
+        
 	public static void searchName() throws ClassNotFoundException, SQLException {
 		sum = 0;
                 try {
