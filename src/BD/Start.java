@@ -8,13 +8,14 @@ import java.sql.Statement;
 
 public class Start {
 
-	public static void main(String[] args) throws ClassNotFoundException,
+	public  static void main(String[] args) throws ClassNotFoundException,
 			SQLException {
-		OutputTable.out();
+		OutputTable.outAllItem();
 		//AddIntoTable.addInfo();
 		//DeleteRow.delete();
 		//OutputTable.out();
-		//SearchForName.search();
-		EditUpdeteName.edit();
+		SearchFor.searchName();
+                SearchFor.searchGroup();
+		//EditUpdeteName.edit();
 	}
 }
