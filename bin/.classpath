@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry excluding="src/" kind="src" path=""/>
+	<classpathentry excluding="src.network/|src.DB/|src.GUI/" kind="src" path="src"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/user/workspace2/StoreHouse/sqlite-jdbc-3.7.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/user/workspace2/StoreHouse/sqlite-jdbc-3.7.2-javadoc.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/user/workspace2/StoreHouse/sqlite-jdbc-3.7.2-sources.jar"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
