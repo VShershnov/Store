@@ -76,8 +76,8 @@
                       <Component id="jScrollPane3" min="-2" pref="969" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jButton9" max="32767" attributes="0"/>
-                          <Component id="jButton8" max="32767" attributes="0"/>
+                          <Component id="jBWareHouseMin" max="32767" attributes="0"/>
+                          <Component id="jBWareHouseAdd" max="32767" attributes="0"/>
                           <Component id="jButton10" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -134,9 +134,9 @@
                       <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="jButton9" min="-2" pref="36" max="-2" attributes="0"/>
+                      <Component id="jBWareHouseMin" min="-2" pref="36" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jButton8" min="-2" pref="36" max="-2" attributes="0"/>
+                      <Component id="jBWareHouseAdd" min="-2" pref="36" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                       <Component id="jButton10" min="-2" pref="36" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="206" max="-2" attributes="0"/>
@@ -290,7 +290,7 @@
         <Property name="toolTipText" type="java.lang.String" value="&#x43a;&#x456;&#x43b;&#x44c;&#x43a;&#x456;&#x441;&#x442;&#x44c; * &#x43d;&#x430; &#x446;&#x456;&#x43d;&#x443;"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton8">
+    <Component class="javax.swing.JButton" name="jBWareHouseAdd">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="24" style="1"/>
@@ -298,8 +298,11 @@
         <Property name="text" type="java.lang.String" value="+"/>
         <Property name="toolTipText" type="java.lang.String" value="&#x43f;&#x440;&#x438;&#x439;&#x448;&#x43b;&#x43e; &#x43d;&#x430; &#x441;&#x43a;&#x43b;&#x430;&#x434; &#x43a;&#x440;&#x443;&#x43f;&#x438; &#x433;&#x440;&#x435;&#x447;&#x430;&#x43d;&#x43e;&#x457; - 10 &#x448;&#x442;&#x443;&#x43a;"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBWareHouseAddActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton9">
+    <Component class="javax.swing.JButton" name="jBWareHouseMin">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="24" style="1"/>
@@ -307,6 +310,9 @@
         <Property name="text" type="java.lang.String" value="-"/>
         <Property name="toolTipText" type="java.lang.String" value="&#x43f;&#x440;&#x43e;&#x434;&#x430;&#x43b;&#x438; &#x43a;&#x440;&#x443;&#x43f;&#x438; &#x433;&#x440;&#x435;&#x447;&#x430;&#x43d;&#x43e;&#x457; - 5 &#x448;&#x442;."/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBWareHouseMinActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton10">
       <Properties>

@@ -28,6 +28,7 @@ public class StoreWForm extends javax.swing.JFrame {
     public StoreWForm() throws ClassNotFoundException, SQLException  {
         initComponents();
         InitDataTabWareHouse();
+        
     }
 
     /**
@@ -57,8 +58,8 @@ public class StoreWForm extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jLabelTotal = new javax.swing.JLabel();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
+        jBWareHouseAdd = new javax.swing.JButton();
+        jBWareHouseMin = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -194,13 +195,23 @@ public class StoreWForm extends javax.swing.JFrame {
         jLabelTotal.setText("Загальна вартість товару на складі: ");
         jLabelTotal.setToolTipText("кількість * на ціну");
 
-        jButton8.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jButton8.setText("+");
-        jButton8.setToolTipText("прийшло на склад крупи гречаної - 10 штук");
+        jBWareHouseAdd.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jBWareHouseAdd.setText("+");
+        jBWareHouseAdd.setToolTipText("прийшло на склад крупи гречаної - 10 штук");
+        jBWareHouseAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBWareHouseAddActionPerformed(evt);
+            }
+        });
 
-        jButton9.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jButton9.setText("-");
-        jButton9.setToolTipText("продали крупи гречаної - 5 шт.");
+        jBWareHouseMin.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jBWareHouseMin.setText("-");
+        jBWareHouseMin.setToolTipText("продали крупи гречаної - 5 шт.");
+        jBWareHouseMin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBWareHouseMinActionPerformed(evt);
+            }
+        });
 
         jButton10.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jButton10.setText("Пошук");
@@ -248,8 +259,8 @@ public class StoreWForm extends javax.swing.JFrame {
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 969, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jBWareHouseMin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jBWareHouseAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButton10))))
                 .addGap(61, 61, Short.MAX_VALUE))
         );
@@ -293,9 +304,9 @@ public class StoreWForm extends javax.swing.JFrame {
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(37, 37, 37))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jBWareHouseMin, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jBWareHouseAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(26, 26, 26)
                         .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(206, 206, 206))))
@@ -318,6 +329,26 @@ public class StoreWForm extends javax.swing.JFrame {
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         
     }//GEN-LAST:event_formWindowActivated
+
+    private void jBWareHouseMinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBWareHouseMinActionPerformed
+        DefaultTableModel  model = (DefaultTableModel)jTabWareHouse.getModel(); 
+        
+        ProductRemWarehouse remProduct = new ProductRemWarehouse();
+        remProduct.setVisible(true);
+        
+        //model.setValueAt(evt, ERROR, NORMAL);
+        //sqlRemote(){CheckForQuontity(); less than Wharehouse - error & show wharehouse quontity};
+        //InitProductTab();
+    }//GEN-LAST:event_jBWareHouseMinActionPerformed
+
+    private void jBWareHouseAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBWareHouseAddActionPerformed
+        DefaultTableModel  model = (DefaultTableModel)jTabWareHouse.getModel();
+        ProductAddWarehouse addProduct = new ProductAddWarehouse();
+        addProduct.setVisible(true);
+        //model.setValueAt(evt, ERROR, NORMAL);
+        //sqlAdd();
+        //InitProductTab();
+    }//GEN-LAST:event_jBWareHouseAddActionPerformed
 
     /**
      * @param args the command line arguments
@@ -361,6 +392,8 @@ public class StoreWForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBWareHouseAdd;
+    private javax.swing.JButton jBWareHouseMin;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton2;
@@ -369,8 +402,6 @@ public class StoreWForm extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -384,7 +415,7 @@ public class StoreWForm extends javax.swing.JFrame {
     private javax.swing.JTable jTable2;
     // End of variables declaration//GEN-END:variables
 
-    private void InitDataTabWareHouse() throws ClassNotFoundException, SQLException {
+    void InitDataTabWareHouse() throws ClassNotFoundException, SQLException {
         DefaultTableModel  model = (DefaultTableModel)jTabWareHouse.getModel(); 
         OutputTable.outAllItemRs();
         
