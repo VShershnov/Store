@@ -31,7 +31,7 @@ public class OutputTable {
            
 	}
         
-        static void out(ResultSet rs) throws ClassNotFoundException, SQLException{
+        public static void out(ResultSet rs) throws ClassNotFoundException, SQLException{
             sum = 0;    
             while (rs.next()){
                 // read the result set
@@ -101,4 +101,25 @@ public class OutputTable {
                     }
              }
 	}
-}
+        
+    /**
+     *
+     * @return
+     * @throws ClassNotFoundException
+     * @throws SQLException
+     */
+    public static void outAllItemRs() throws ClassNotFoundException, SQLException {
+            try {
+                connection();// create a database connection
+                rs = statement.executeQuery("select * from Goods");
+                //out(rs); // вивод даних
+                
+            } catch (SQLException e) {
+                // if the error message is "out of memory",
+                // it probably means no database file is found
+                System.err.println("outAllItemRs()");
+            } 
+             
+    }
+        
+	}

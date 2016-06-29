@@ -6,10 +6,14 @@
 package GUI;
 
 
+import BD.OutputTable;
+import static BD.OutputTable.conn;
 import BD.SearchFor;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
 
 
 /**
@@ -21,8 +25,9 @@ public class StoreWForm extends javax.swing.JFrame {
     /**
      * Creates new form StoreWForm
      */
-    public StoreWForm() {
+    public StoreWForm() throws ClassNotFoundException, SQLException  {
         initComponents();
+        InitDataTabWareHouse();
     }
 
     /**
@@ -39,7 +44,7 @@ public class StoreWForm extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        jTabWareHouse = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -60,6 +65,11 @@ public class StoreWForm extends javax.swing.JFrame {
         addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 formMouseClicked(evt);
+            }
+        });
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
             }
         });
 
@@ -131,28 +141,9 @@ public class StoreWForm extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(jTable2);
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        jTabWareHouse.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+
             },
             new String [] {
                 "Группа", "Товар", "Опис", "Виробник", "Ціна за од", "Кіл-ть"
@@ -173,7 +164,8 @@ public class StoreWForm extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane3.setViewportView(jTable3);
+        jTabWareHouse.setCellSelectionEnabled(true);
+        jScrollPane3.setViewportView(jTabWareHouse);
 
         jLabel1.setText("Группа Товарів");
 
@@ -323,6 +315,10 @@ public class StoreWForm extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_formMouseClicked
 
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        
+    }//GEN-LAST:event_formWindowActivated
+
     /**
      * @param args the command line arguments
      */
@@ -353,7 +349,13 @@ public class StoreWForm extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new StoreWForm().setVisible(true);
+                try {
+                    new StoreWForm().setVisible(true);
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(StoreWForm.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (SQLException ex) {
+                    Logger.getLogger(StoreWForm.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
@@ -377,8 +379,26 @@ public class StoreWForm extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTable jTabWareHouse;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
     // End of variables declaration//GEN-END:variables
+
+    private void InitDataTabWareHouse() throws ClassNotFoundException, SQLException {
+        DefaultTableModel  model = (DefaultTableModel)jTabWareHouse.getModel(); 
+        OutputTable.outAllItemRs();
+        
+        ResultSet rs = OutputTable.rs;
+        //OutputTable.out(rs);
+            while (rs.next()) {
+              model.insertRow(rs.getRow()-1, new Object[] {rs.getString("name_group"), rs.getString("name"), rs.getString("discribe"), rs.getString("maker"),
+                        rs.getInt("price"), rs.getInt("count"), rs.getString("date")});
+            }
+        try {
+             if (conn != null) conn.close();
+        } catch (SQLException e) {
+                // connection close failed.
+                System.err.println(e);
+          }
+    }
 }
