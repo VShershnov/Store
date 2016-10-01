@@ -107,8 +107,9 @@ public class OutputTable {
      *
      * @throws ClassNotFoundException
      * @throws SQLException
+     * @return rs ResultSet of select * from Goods 
      */
-    public void outAllItemRs() throws ClassNotFoundException, SQLException {
+    public ResultSet outAllItemRs() throws ClassNotFoundException, SQLException {
             try {
                 connection();// create a database connection
                 rs = statement.executeQuery("select * from Goods");
@@ -119,7 +120,7 @@ public class OutputTable {
                 // it probably means no database file is found
                 System.err.println("outAllItemRs()");
             } 
-             
+          return rs;   
     }
         
 	}

@@ -7,7 +7,6 @@ package GUI;
 
 
 import BD.OutputTable;
-import static BD.OutputTable.conn;
 import BD.SearchFor;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -25,6 +24,10 @@ public class StoreWForm extends javax.swing.JFrame {
     /**
      * Creates new form StoreWForm
      */
+    
+    SearchFor search = new SearchFor();
+    OutputTable outable = new OutputTable();
+    
     public StoreWForm() throws ClassNotFoundException, SQLException  {
         initComponents();
         InitDataTabWareHouse();
@@ -335,7 +338,7 @@ public class StoreWForm extends javax.swing.JFrame {
     private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
         try {
             jLabelTotal.setText("Загальна вартість товару на складі: ");
-            this.jLabelTotal.setText( jLabelTotal.getText() + SearchFor.outSum());
+            this.jLabelTotal.setText( jLabelTotal.getText() + search.outSum());
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(StoreWForm.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
@@ -436,16 +439,17 @@ public class StoreWForm extends javax.swing.JFrame {
 
    public void InitDataTabWareHouse() throws ClassNotFoundException, SQLException {
         DefaultTableModel  model = (DefaultTableModel)jTabWareHouse.getModel(); 
-        OutputTable.outAllItemRs();
+        ResultSet rs = outable.outAllItemRs();
         
-        ResultSet rs = OutputTable.rs;
+       //ResultSet rs = new ResultSet();
         //OutputTable.out(rs);
+        
             while (rs.next()) {
               model.insertRow(rs.getRow()-1, new Object[] {rs.getString("name_group"), rs.getString("name"), rs.getString("discribe"), rs.getString("maker"),
                         rs.getInt("price"), rs.getInt("count"), rs.getString("date")});
             }
         try {
-             if (conn != null) conn.close();
+             if (outable.conn != null) outable.conn.close();
         } catch (SQLException e) {
                 // connection close failed.
                 System.err.println(e);
