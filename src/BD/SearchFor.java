@@ -1,8 +1,6 @@
 package BD;
 
-import static BD.OutputTable.out;
-import static BD.OutputTable.rs;
-import static BD.OutputTable.statement;
+import BD.OutputTable;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -11,9 +9,8 @@ import java.sql.Statement;
 
 public class SearchFor extends OutputTable {
         
-        
-        
-	public static void searchName() throws ClassNotFoundException, SQLException {
+    ////===========Search for name of goods
+        public void searchName() throws ClassNotFoundException, SQLException {
 		sum = 0;
                 try {
                     connection();// create a database connection
@@ -34,8 +31,9 @@ public class SearchFor extends OutputTable {
 			}
 		}
 	}
-
-	public static void searchGroup() throws ClassNotFoundException, SQLException {
+        
+        ////===========Search for name_group of goods
+	public void searchGroup() throws ClassNotFoundException, SQLException {
                 sum = 0;
                 try {
                     connection();// create a database connection

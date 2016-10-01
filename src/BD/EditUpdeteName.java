@@ -6,9 +6,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+// служебный класс. Пока не используемы
 public class EditUpdeteName {
 
-	public static void edit() throws ClassNotFoundException {
+	public void edit() throws ClassNotFoundException {
 		{
 			// load the sqlite-JDBC driver using the current class loader
 			Class.forName("org.sqlite.JDBC");
@@ -42,7 +43,7 @@ public class EditUpdeteName {
 		}
 	}
 
-	private static void searchGroup() {
+	private void searchGroup() {
 		// TODO Auto-generated method stub
 		
 	}

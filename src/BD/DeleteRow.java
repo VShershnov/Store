@@ -6,9 +6,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+
+// служебный класс. Пока не используемы
 public class DeleteRow {
 
-	public static void delete() throws ClassNotFoundException {
+	public void delete() throws ClassNotFoundException {
 		{
 			// load the sqlite-JDBC driver using the current class loader
 			Class.forName("org.sqlite.JDBC");

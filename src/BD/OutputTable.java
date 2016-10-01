@@ -8,19 +8,20 @@ import java.sql.Statement;
 
 public class OutputTable {
 
-	static int sum;
-        public static Connection conn;
-	public static Statement statement;
-	public static ResultSet rs;
+	public int sum;
+        public Connection conn;
+	public Statement statement;
+	public ResultSet rs;
 
 /**
  *
- * @author user
+ * @author vshershnov
      * @throws java.lang.ClassNotFoundException
      * @throws java.sql.SQLException
  */
 	// --------ПОДКЛЮЧЕНИЕ К БАЗЕ ДАННЫХ--------
-	public static void connection() throws ClassNotFoundException, SQLException{
+        //возвращает статус "База Подключена!"
+	public void connection() throws ClassNotFoundException, SQLException{
            conn = null;
            Class.forName("org.sqlite.JDBC");
            conn = DriverManager.getConnection("jdbc:sqlite:Base.db");
@@ -31,7 +32,7 @@ public class OutputTable {
            
 	}
         
-        public static void out(ResultSet rs) throws ClassNotFoundException, SQLException{
+        public void out(ResultSet rs) throws ClassNotFoundException, SQLException{
             sum = 0;    
             while (rs.next()){
                 // read the result set
@@ -51,7 +52,7 @@ public class OutputTable {
         }
         
         // The sum of all goods
-        public static int outSum() throws ClassNotFoundException, SQLException{
+        public int outSum() throws ClassNotFoundException, SQLException{
             sum = 0;
             try {
                 connection();// create a database connection
@@ -81,7 +82,7 @@ public class OutputTable {
      * @throws ClassNotFoundException
      * @throws SQLException
      */
-        public static void outAllItem() throws ClassNotFoundException, SQLException {
+        public void outAllItem() throws ClassNotFoundException, SQLException {
             try {
                 connection();// create a database connection
                 rs = statement.executeQuery("select * from Goods");
@@ -104,11 +105,10 @@ public class OutputTable {
         
     /**
      *
-     * @return
      * @throws ClassNotFoundException
      * @throws SQLException
      */
-    public static void outAllItemRs() throws ClassNotFoundException, SQLException {
+    public void outAllItemRs() throws ClassNotFoundException, SQLException {
             try {
                 connection();// create a database connection
                 rs = statement.executeQuery("select * from Goods");

@@ -1,7 +1,7 @@
 package BD;
 
 import BD.AddIntoTable;
-import static BD.OutputTable.sum;
+import BD.OutputTable;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -11,17 +11,21 @@ import java.sql.Statement;
 public class Start {
 
 	public static void main(String[] args) throws ClassNotFoundException,
-			SQLException {
-		OutputTable.outAllItem();
+		SQLException {
+		
+                OutputTable outable = new OutputTable();
+                outable.outAllItem();
                 
                 AddIntoTable ad = new AddIntoTable("ftuits", "plum", "якийсь фрукт", "Херрсон", "20", "100");
 		ad.addInfo();
                 //AddIntoTable.addInfo("ftuits", "plum", "якийсь фрукт", "Херрсон", 20, 100);
 		//DeleteRow.delete();
 		//OutputTable.out();
-		SearchFor.searchName();
-                SearchFor.searchGroup();
-                System.out.println("The sum of all goods = " + SearchFor.outSum());
+		
+                SearchFor search = new SearchFor();
+                search.searchName();
+                search.searchGroup();
+                System.out.println("The sum of all goods = " + search.outSum());
 		//EditUpdeteName.edit();
 	}
 }
