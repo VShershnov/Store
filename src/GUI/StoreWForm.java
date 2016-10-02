@@ -17,7 +17,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author user
+ * @author vshershnov
  */
 public class StoreWForm extends javax.swing.JFrame {
 
@@ -440,10 +440,7 @@ public class StoreWForm extends javax.swing.JFrame {
    public void InitDataTabWareHouse() throws ClassNotFoundException, SQLException {
         DefaultTableModel  model = (DefaultTableModel)jTabWareHouse.getModel(); 
         ResultSet rs = outable.outAllItemRs();
-        
-       //ResultSet rs = new ResultSet();
-        //OutputTable.out(rs);
-        
+                  
             while (rs.next()) {
               model.insertRow(rs.getRow()-1, new Object[] {rs.getString("name_group"), rs.getString("name"), rs.getString("discribe"), rs.getString("maker"),
                         rs.getInt("price"), rs.getInt("count"), rs.getString("date")});
