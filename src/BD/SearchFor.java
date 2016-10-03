@@ -9,12 +9,12 @@ import java.sql.Statement;
 public class SearchFor extends OutputTable {
         
     ////===========Search for name of goods
-        public void searchName() throws ClassNotFoundException, SQLException {
+        public void searchName(String name) throws ClassNotFoundException, SQLException {
 		sum = 0;
                 try {
                     connection();// create a database connection
                     //===========Search for name of goods
-                    rs =statement.executeQuery("SELECT * FROM Goods WHERE name = 'plum'");
+                    rs =statement.executeQuery("SELECT * FROM Goods WHERE name = '" + name + "'");
                     out(rs); // вивод даних
 		} catch (SQLException e) {
                     // if the error message is "out of memory",
@@ -32,12 +32,12 @@ public class SearchFor extends OutputTable {
 	}
         
         ////===========Search for name_group of goods
-	public void searchGroup() throws ClassNotFoundException, SQLException {
+	public void searchGroup(String group) throws ClassNotFoundException, SQLException {
                 sum = 0;
                 try {
                     connection();// create a database connection
                     //===========Search for name_group of goods
-                    rs = statement.executeQuery("SELECT * FROM Goods WHERE name_group = 'fruits'");
+                    rs = statement.executeQuery("SELECT * FROM Goods WHERE name_group = '" + group + "'");
                     out(rs); // вивод даних
 		} catch (SQLException e) {
                     // if the error message is "out of memory",

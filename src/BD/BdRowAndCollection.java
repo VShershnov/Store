@@ -43,9 +43,9 @@ public class BdRowAndCollection extends OutputTable {
                 BdRow row = new BdRow();
                 row.id=rsc.getInt("id");
                 row.name_group=rsc.getString("name_group");
-                row.name=rs.getString("name");
-                row.discribe=rs.getString("discribe");
-                row.maker=rs.getString("maker");
+                row.name=rsc.getString("name");
+                row.discribe=rsc.getString("discribe");
+                row.maker=rsc.getString("maker");
                 row.price=rsc.getFloat("count");
                 row.count=rsc.getInt("count");
                 bdCollection.add(row);
@@ -66,7 +66,36 @@ public class BdRowAndCollection extends OutputTable {
     return bdCollection;
     }
     
-
+    public ArrayList bdAllRowToCollection (ResultSet rs)throws ClassNotFoundException, SQLException {
+    
+        ArrayList<BdRow> bdCollection = new ArrayList<BdRow>();
+        try {
+            while(rs.next()){
+                BdRow row = new BdRow();
+                row.id=rs.getInt("id");
+                row.name_group=rs.getString("name_group");
+                row.name=rs.getString("name");
+                row.discribe=rs.getString("discribe");
+                row.maker=rs.getString("maker");
+                row.price=rs.getFloat("count");
+                row.count=rs.getInt("count");
+                bdCollection.add(row);
+            }
+	} catch (SQLException e) {
+            // if the error message is "out of memory",
+            // it probably means no database file is found
+            System.err.println(e.getMessage());
+	} finally {
+		try {
+                    if (conn != null)
+			conn.close();
+                    } catch (SQLException e) {
+                    // connection close failed.
+                       System.err.println(e);
+                    }
+		}
+    return bdCollection;
+    }
     
 
 

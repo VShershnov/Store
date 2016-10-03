@@ -16,15 +16,15 @@ public class Start {
                 OutputTable outable = new OutputTable();
                 outable.outAllItem();
                 
-                AddIntoTable ad = new AddIntoTable("ftuits", "plum", "якийсь фрукт", "Херрсон", "20", "100");
-		ad.addInfo();
+                AddIntoTable ad = new AddIntoTable("fruits", "plum", "якийсь фрукт", "Херрсон", "20", "100");
+                ad.addInfo();
                 //AddIntoTable.addInfo("ftuits", "plum", "якийсь фрукт", "Херрсон", 20, 100);
 		//DeleteRow.delete();
 		//OutputTable.out();
 		
                 SearchFor search = new SearchFor();
-                search.searchName();
-                search.searchGroup();
+                search.searchGroup("fruits");
+                search.searchName("plum");
                 System.out.println("The sum of all goods = " + search.outSum());
 		//EditUpdeteName.edit();
 	}
