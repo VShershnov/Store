@@ -10,21 +10,29 @@ import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
 
 /**
  *
  * @author user
  */
 
-class BdRow {
+class BdGroup {
     public int id;
     public String name_group;
+    public int count;    
+    public float cost;
+}
+
+class BdRow extends BdGroup {
     public String name;
     public String discribe;
     public String maker;
     public float price;
-    public int count;
+   
 }
+
 
 public class BdRowAndCollection extends OutputTable {
     
@@ -97,8 +105,44 @@ public class BdRowAndCollection extends OutputTable {
     return bdCollection;
     }
     
+    public ArrayList bdGoupToCollection (ResultSet rs)throws ClassNotFoundException, SQLException {
+    
+        ArrayList<BdGroup> groupCol = new ArrayList<BdGroup>();
+        try {
+            while(rs.next()){
+                BdGroup row = new BdGroup();
+                row.name_group=rs.getString("name_group");
+                row.count=rs.getInt("count");
+                row.cost=rs.getFloat("cost");
+                groupCol.add(row);
+            }
+            displayAll(groupCol);
+            
+	} catch (SQLException e) {
+            // if the error message is "out of memory",
+            // it probably means no database file is found
+            System.err.println(e.getMessage());
+	} finally {
+		try {
+                    if (conn != null)
+			conn.close();
+                    } catch (SQLException e) {
+                    // connection close failed.
+                       System.err.println(e);
+                    }
+		}
+    return groupCol;
+    }
+    
 
-
+static void displayAll(Collection col) {
+      Iterator itr = col.iterator();
+      while (itr.hasNext()) {
+         String str = (String) itr.next();
+         System.out.print(str + " ");
+      }
+      System.out.println();
+   }
 
     
     
