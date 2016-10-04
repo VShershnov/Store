@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.Collection;
 
 public class SearchFor extends OutputTable {
         
@@ -53,11 +55,10 @@ public class SearchFor extends OutputTable {
 			}
 		}
         }
-<<<<<<< Updated upstream
-=======
         
         ////===========Search for name_group of goods
-	public void printSearchGroup() throws ClassNotFoundException, SQLException {
+        ////===========в планах заменить на механизм выборки поля name_group из коллекции обьектов
+	public void tePrintSearchGroup() throws ClassNotFoundException, SQLException {
                 try {
                     connection();// create a database connection
                     //===========Search for name_group of goods
@@ -80,6 +81,7 @@ public class SearchFor extends OutputTable {
 		}
         }
         
+        ////===========в планах заменить на механизм выборки поля name_group из коллекции обьектов
         public ResultSet searchGroup() throws ClassNotFoundException, SQLException {
                 try {
                     connection();// create a database connection
@@ -105,14 +107,17 @@ public class SearchFor extends OutputTable {
                 return rs;
         }
         
-        public ResultSet searchSumByGroup() throws ClassNotFoundException, SQLException {
+        public ArrayList searchSumByGroup() throws ClassNotFoundException, SQLException {
+                ArrayList groupList = null;
                 try {
                     connection();// create a database connection
                     //===========Search for name_group of goods
                     rs = statement.executeQuery("SELECT name_group, sum(count) as count, "
                                                 + "sum(price*count) as cost FROM Goods\n" 
                                                 +"group by name_group");
-                    
+                    BdRowAndCollection groupCol = new BdRowAndCollection();
+                    groupList = groupCol.bdGoupToCollection(rs);
+                                        
                     // вивод уникальных групп товара 
                    // while (rsg.next()) 
                    //     System.out.println(" name_group = " + rsg.getString("name_group"));
@@ -129,13 +134,7 @@ public class SearchFor extends OutputTable {
                             System.err.println(e);
 			}
 		} 
-                return rs;
+                return groupList;
         }
-        
-        
-        
-        
-        
-        
->>>>>>> Stashed changes
+
 }

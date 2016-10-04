@@ -58,11 +58,13 @@ public class BdRowAndCollection extends OutputTable {
                 row.count=rsc.getInt("count");
                 bdCollection.add(row);
             }
-	} catch (SQLException e) {
+	
+        } catch (SQLException e) {
             // if the error message is "out of memory",
             // it probably means no database file is found
             System.err.println(e.getMessage());
-	} finally {
+	
+        } finally {
 		try {
                     if (conn != null)
 			conn.close();
@@ -116,22 +118,13 @@ public class BdRowAndCollection extends OutputTable {
                 row.cost=rs.getFloat("cost");
                 groupCol.add(row);
             }
-            displayAll(groupCol);
             
 	} catch (SQLException e) {
             // if the error message is "out of memory",
             // it probably means no database file is found
             System.err.println(e.getMessage());
-	} finally {
-		try {
-                    if (conn != null)
-			conn.close();
-                    } catch (SQLException e) {
-                    // connection close failed.
-                       System.err.println(e);
-                    }
-		}
-    return groupCol;
+	} 
+        return groupCol;
     }
     
 
