@@ -8,6 +8,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
 
 public class Start {
 
@@ -39,7 +41,10 @@ public class Start {
             //          System.out.println(" name_group = " + rsg.getString("name_group"));
                 
             ArrayList group = search.searchSumByGroup();
+            //displayAll(group);
+            
             System.out.println(" name_group = " + group.toString());
+            
             //  while (rsg.next()) 
             //           System.out.println(" name_group = " + rsg.getString("name_group") 
             //                           + " count = " + rsg.getString("count") 
@@ -52,8 +57,22 @@ public class Start {
             //BdRowAndCollection groupCollection = new BdRowAndCollection();
             //ArrayList group = groupCollection.bdGoupToCollection(rsg);
             
-//System.out.println(group.toString());
+            //System.out.println(group.toString());
 
-		//EditUpdeteName.edit();
-	}
+            //EditUpdeteName.edit();
+	
+        
+        }
+
+        
+        //static void displayAll(Collection col) {
+          //      Iterator itr = col.iterator();
+          //      while (itr.hasNext()) {
+          //          String str = (String) itr.next();
+          //          System.out.print(str + " ");
+          //      }
+          //      System.out.println();
+        //}
 }
+
+

@@ -18,20 +18,7 @@ import java.util.Iterator;
  * @author user
  */
 
-class BdGroup {
-    public int id;
-    public String name_group;
-    public int count;    
-    public float cost;
-}
 
-class BdRow extends BdGroup {
-    public String name;
-    public String discribe;
-    public String maker;
-    public float price;
-   
-}
 
 
 public class BdRowAndCollection extends OutputTable {
@@ -150,3 +137,10 @@ static void displayAll(Collection col) {
     
     
 }
+
+
+    
+    
+
+
+
