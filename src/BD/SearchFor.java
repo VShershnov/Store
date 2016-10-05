@@ -34,7 +34,7 @@ public class SearchFor extends OutputTable {
 	}
         
         ////===========Search for name_group of goods
-	public void searchGroup(String group) throws ClassNotFoundException, SQLException {
+	public void searchNemeByGroup(String group) throws ClassNotFoundException, SQLException {
                 sum = 0;
                 try {
                     connection();// create a database connection
@@ -59,6 +59,8 @@ public class SearchFor extends OutputTable {
         ////===========Search for name_group of goods
         ////===========в планах заменить на механизм выборки поля name_group из коллекции обьектов
 	public void tePrintSearchGroup() throws ClassNotFoundException, SQLException {
+
+	
                 try {
                     connection();// create a database connection
                     //===========Search for name_group of goods
@@ -81,6 +83,7 @@ public class SearchFor extends OutputTable {
 		}
         }
         
+
         ////===========в планах заменить на механизм выборки поля name_group из коллекции обьектов
         public ResultSet searchGroup() throws ClassNotFoundException, SQLException {
                 try {
@@ -107,6 +110,7 @@ public class SearchFor extends OutputTable {
                 return rs;
         }
         
+
         public ArrayList searchSumByGroup() throws ClassNotFoundException, SQLException {
                 ArrayList groupList = null;
                 try {
@@ -117,7 +121,7 @@ public class SearchFor extends OutputTable {
                                                 +"group by name_group");
                     BdRowAndCollection groupCol = new BdRowAndCollection();
                     groupList = groupCol.bdGoupToCollection(rs);
-                                        
+
                     // вивод уникальных групп товара 
                    // while (rsg.next()) 
                    //     System.out.println(" name_group = " + rsg.getString("name_group"));
@@ -137,4 +141,6 @@ public class SearchFor extends OutputTable {
                 return groupList;
         }
 
-}
+
+        }
+        
