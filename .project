@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-<<<<<<< HEAD
-<<<<<<< HEAD
-	<name>StoreHouse</name>
-=======
-	<name>Store</name>
->>>>>>> e556d865c53b49700db04a29428a838f715d3b59
-=======
-	<name>BDSQLite</name>
->>>>>>> a78e5413f32f43673267d90bb6073343ab2ff4cd
+	<name>StoreWerehouse</name>
 	<comment></comment>
 	<projects>
 	</projects>
